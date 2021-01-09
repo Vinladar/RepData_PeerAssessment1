@@ -426,8 +426,9 @@ plot(interval_steps, type = &quot;l&quot;, main = &quot;Average number of Steps&
 <pre class="r"><code>nrow(data[is.na(data$steps),])</code></pre>
 <pre><code>## [1] 2304</code></pre>
 </div>
-<div id="create-a-new-dataset-that-is-equal-to-the-original-dataset-but-with-the-missing-data-filled-in" class="section level2">
-<h2>Create a new dataset that is equal to the original dataset but with the missing data filled in</h2>
+<div id="create-a-new-dataset-that-is-equal-to-the-original-dataset-but-with-the-missing-data-filled-in." class="section level2">
+<h2>Create a new dataset that is equal to the original dataset but with the missing data filled in.</h2>
+<p>Check the original data set and find all the NAs, then replace them with the average steps by interval</p>
 <pre class="r"><code>imputed_data &lt;- transform(data, steps = ifelse(is.na(data$steps), interval_steps$Average_Steps, data$steps))</code></pre>
 </div>
 <div id="total-number-of-steps-taken-and-the-imputed-data-set." class="section level2">

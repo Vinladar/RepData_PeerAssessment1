@@ -96,11 +96,13 @@ nrow(data[is.na(data$steps),])
 ## [1] 2304
 ```
 
-## Create a new dataset that is equal to the original dataset but with the missing data filled in
+## Create a new dataset that is equal to the original dataset but with the missing data filled in.
+Check the original data set and find all the NAs, then replace them with the average steps by interval
 
 ```r
 imputed_data <- transform(data, steps = ifelse(is.na(data$steps), interval_steps$Average_Steps, data$steps))
 ```
+
 ## Total number of steps taken and the imputed data set.
 
 ```r

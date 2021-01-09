@@ -50,10 +50,12 @@ Find the number of NAs in the original dataset.
 nrow(data[is.na(data$steps),])
 ```
 
-## Create a new dataset that is equal to the original dataset but with the missing data filled in
+## Create a new dataset that is equal to the original dataset but with the missing data filled in.
+Check the original data set and find all the NAs, then replace them with the average steps by interval
 ```{r}
 imputed_data <- transform(data, steps = ifelse(is.na(data$steps), interval_steps$Average_Steps, data$steps))
 ```
+
 ## Total number of steps taken and the imputed data set.
 ```{r}
 imputed_total_steps <- with(imputed_data, aggregate(steps, by = list(date), FUN = sum, na.rm = TRUE))
